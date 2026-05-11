@@ -42,13 +42,23 @@ public class BookController {
         return "book/index";
     }
 
-    @GetMapping("/book/add")
-    public String add(Model model) {
-        if (!model.containsAttribute("bookMstDto")) {
-            model.addAttribute("bookMstDto", new BookMstDto());
-        }
-
+        @GetMapping("/book/add")
+        public String add(Model model) {
+            if (!model.containsAttribute("bookMstDto")) {
+                model.addAttribute("bookMstDto", new BookMstDto());
+            }
+    
         return "book/add";
     }
-    
+
+
+@PostMapping("/book/add")
+   
+    public String save(BookMstDto bookmstDto){
+       
+        bookMstService.save(bookmstDto);
+        return "book/index";
+ 
+    }
 }
+    
