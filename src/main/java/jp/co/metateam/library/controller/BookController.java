@@ -51,14 +51,11 @@ public class BookController {
         return "book/add";
     }
 
-
 @PostMapping("/book/add")
-   
     public String save(BookMstDto bookmstDto){
        
         bookMstService.save(bookmstDto);
-        return "book/index";
- 
+        return "redirect:/book/index";
     }
 }
     
